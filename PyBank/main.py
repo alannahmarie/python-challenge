@@ -1,49 +1,34 @@
+# Import csv module and read csv file
 import csv
 
-csvpath = "Resources/budget_data.csv"
+csvpath = "/Users/alannahmarie/Desktop/python-challenge/PyBank/Resources/budget_data.csv"
 
 with open(csvpath) as budget_data:
 
     csvreader = csv.reader(budget_data, delimiter=",")
-    
-    month = []
-    prof_loss = []
-    total_prof_loss = 0
 
+    # Remover header from iterable data
+    next(csvreader)
+
+    # Define variables that you will use in for looo
+    total_months = 0
+    profit_losses = 0
+    average_change = 0 
+    increase = 0
+    decrease = 0 
+    prev_row = 0 
+    next_row = prev_row + 1
+    # Create a for loop that will iterate over all rows of data
     for row in csvreader:
-    
-        date = row[0]
 
-        mydate = date.split("-")
-        
-        month.append(mydate[0])
+        total_months = total_months + 1
+        profit_losses = profit_losses + (int(row[1]))
+       
 
-        prof_loss.append(row[1])
-
-    prof_loss.remove('Profit/Losses')
-
-    for a in range(0, len(prof_loss)): 
-        prof_loss[a] = int(prof_loss[a]) 
-
-    for b in range(0, len(prof_loss)): 
-         total_prof_loss = total_prof_loss + prof_loss[b] 
-
-    calc_prof_loss = [] 
-  
-    for c in range(1, len(prof_loss)): 
-        calc_prof_loss.append(prof_loss[c] - prof_loss[c-1]) 
-    
-        average = sum(calc_prof_loss) / len(prof_loss)
-
-        formatted_average = "${:,.2f}".format(average)
-
-    total_months = len(month)
-
-
-    print("Financial Analysis")
-    print("---------------------------------------------------------")
-    print(f"Total Months: {total_months - 1}")
-    print(f"Total: ${total_prof_loss}")
-    print(f"Average Change: {formatted_average}")
-    print(f"Greatest Increase in Profits: ")
-    print(f"Greatest Decrease in Profits: ")
+print("Financial Valuation")
+print("----------------------------------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${profit_losses}")
+print(f"Average Change: {average_change}")
+print(f"Greatest Increase in Profits: $ {increase}")
+print(f"Greatest Decrease in Profits: $")
