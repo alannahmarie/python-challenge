@@ -35,11 +35,8 @@ with open(csvpath) as budget_data:
         max_index = money.index(increase)
         min_index = money.index(decrease)
         
-        
-
     change = money[-1] - money[0]
     average_change = round((change) / (total_months -1), 2)
-
 
 print(" ")
 print("Financial Valuation")
