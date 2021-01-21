@@ -54,7 +54,7 @@ with open(output_path, 'w', newline='') as txt:
     txt.write('Financial Valuation\n') 
     txt.write('----------------------------------------------------\n') 
     txt.write(f"Total Months: {total_months}\n") 
-    txt.write(f"Total: ${profit_losses}") 
+    txt.write(f"Total: ${profit_losses}\n") 
     txt.write(f"Average Change: ${average_change}\n") 
     txt.write(f"Greatest Increase in Profits: {month[max_index]} (${money[max_index]})\n") 
     txt.write(f"Greatest Decrease in Profits: {month[min_index]} (${money[min_index]})") 
